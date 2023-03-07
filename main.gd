@@ -1,17 +1,7 @@
-# Example class to show how to get gyroscope data from mobile devices running
-# HTML5 apps. We leverage the Godot-Javascript bridge to make JavaScript calls
-# and get data from the sensors.
-# This is needed because the Godot API for the gyroscope only works on **native**
-# mobile platforms.
-extends Node
+extends Node2D
 
 
-var window = JavaScript.get_interface("window")
-var console = JavaScript.get_interface("console")
-# Need to create the callback here or it doesn't work
-var handleOrientation = JavaScript.create_callback(self, "handle_orientation")
-var iosHandleOrientation = JavaScript.create_callback(self, "ios_handle_orientation")
-
+onready var sensor_component := $SensorComponent as SensorComponent
 onready var os_label := $Control/OS as Label
 onready var gyro_label := $Control/Gyroscope as Label
 # iOS only
@@ -19,45 +9,25 @@ onready var enable_gyro_btn := $Control/EnableGyro as CheckButton
 
 
 func _ready() -> void:
+	# update UI
 	enable_gyro_btn.hide()
-	if OS.has_feature("JavaScript"):
-		# try to get OS, getOS() is defined in the head_include property!
-		var os_string = window.getOS()
-		os_label.text = "OS: %s" % os_string
-		# works on Android
-		if os_string == "Android":
-			window.addEventListener("deviceorientation", handleOrientation)
-		elif os_string == "iOS":
-			enable_gyro_btn.show()
-#		window.addEventListener("deviceorientation",
-#			(event) => window.result = event.alpha + "|" + event.beta + "|" + event.gamma
-#		);
+	os_label.text = "OS: %s" % sensor_component.os_string
+	# plug-in logic
+	if sensor_component.os_string == "iOS":
+		enable_gyro_btn.show()
 
 
-# Event listener: handles orientation by getting the event data
-func handle_orientation(args: Array) -> void:
-	var event = args[0]
-	if event != null:
-		var coords := "(%.2f, %.2f, %.2f)" % [event.alpha, event.beta, event.gamma]
-		gyro_label.text = "Gyroscope: %s" % coords
-	else:
-		print("Couldn't get event data!")
+# Used to trigger the iOS permission logic
+func _on_EnableGyro_toggled(button_pressed: bool) -> void:
+	sensor_component.is_permission_asked = button_pressed
 
 
-# iOS only: checks if permission to use the gyroscope was granted.
-# User interaction is mandatory for iPhones, plus note that it only works
-# under an HTTPS website.
-func ios_handle_orientation(args: Array) -> void:
-	var state = args[0]
-	enable_gyro_btn.pressed = args[0] == "granted"
-	if state == "granted":
-		window.addEventListener("deviceorientation", handleOrientation)
-	else:
-		print("Request to access the orientation was rejected")
+# Here is where the sensor data is received, in case of success
+func _on_SensorComponent_gyroscope_triggered(coords: Vector3) -> void:
+	var text := "(%.2f, %.2f, %.2f)" % [coords.x, coords.y, coords.z]
+	gyro_label.text = "Gyroscope: %s" % text
 
 
-func _on_CheckButton_toggled(button_pressed: bool) -> void:
-	if button_pressed:
-		var devicemotionevent = JavaScript.get_interface("DeviceMotionEvent")
-		devicemotionevent.requestPermission().then(iosHandleOrientation).\
-				catch(console.error)
+# Updates the checkbox button based on the outcome of the request
+func _on_SensorComponent_ios_permission_requested(value: bool) -> void:
+	enable_gyro_btn.pressed = value
