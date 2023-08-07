@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sensor_component.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/planet01.png" type="Texture" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
-[ext_resource path="res://assets/planet04.png" type="Texture" id=4]
-[ext_resource path="res://assets/planet06.png" type="Texture" id=5]
+[ext_resource path="res://assets/bg_space_seamless.png" type="Texture" id=4]
 [ext_resource path="res://assets/planet03.png" type="Texture" id=6]
 [ext_resource path="res://assets/planet02.png" type="Texture" id=7]
-[ext_resource path="res://assets/background.png" type="Texture" id=8]
 [ext_resource path="res://assets/planet07.png" type="Texture" id=9]
 [ext_resource path="res://assets/planet08.png" type="Texture" id=10]
 [ext_resource path="res://assets/planet05.png" type="Texture" id=11]
@@ -26,8 +24,10 @@ motion_scale = Vector2( 0.1, 1 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 position = Vector2( 540, 960 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 8 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 2160 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -36,89 +36,87 @@ __meta__ = {
 motion_scale = Vector2( 0.2, 1 )
 
 [node name="Planet07" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 208, 400 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 248, 1536 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 9 )
-
-[node name="Planet04" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 1488, 1544 )
-scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 4 )
-
-[node name="Planet09" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 1536, 184 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 12 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.3, 1 )
 
-[node name="Planet06" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 760, 1688 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 5 )
-
 [node name="Planet00" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( -696, 168 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 24, 392 )
+scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 13 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.4, 1 )
 
-[node name="Planet01" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2( -360, 1568 )
-scale = Vector2( 0.43, 0.43 )
-texture = ExtResource( 2 )
-
-[node name="Planet05" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2( 1696, 984 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-
-[node name="Planet08" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2( 904, 272 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+[node name="Planet09" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 1080, 1568 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 12 )
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.5, 1 )
 
-[node name="Planet02" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="Planet05" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 1528, 824 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 11 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
+
+[node name="Planet02" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
 position = Vector2( -496, 616 )
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 7 )
 
-[node name="Planet03" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
-position = Vector2( 632, 1000 )
-scale = Vector2( 0.8, 0.8 )
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.7, 1 )
+
+[node name="Planet03" type="Sprite" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2( 552, 976 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 6 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.8, 1 )
 
-[node name="HUD" type="CanvasLayer" parent="Camera2D"]
+[node name="Planet08" type="Sprite" parent="ParallaxBackground/ParallaxLayer8"]
+position = Vector2( 1176, 1096 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 10 )
 
-[node name="Rows" type="VBoxContainer" parent="Camera2D/HUD"]
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.9, 1 )
+
+[node name="Planet01" type="Sprite" parent="ParallaxBackground/ParallaxLayer9"]
+position = Vector2( -536, 1584 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Rows" type="VBoxContainer" parent="HUD"]
 margin_right = 149.0
 margin_bottom = 76.0
 rect_scale = Vector2( 3, 3 )
 
-[node name="OSLabel" type="Label" parent="Camera2D/HUD/Rows"]
+[node name="OSLabel" type="Label" parent="HUD/Rows"]
 unique_name_in_owner = true
 margin_right = 149.0
 margin_bottom = 14.0
 text = "OS"
 
-[node name="GyroscopeLabel" type="Label" parent="Camera2D/HUD/Rows"]
+[node name="GyroscopeLabel" type="Label" parent="HUD/Rows"]
 unique_name_in_owner = true
 margin_top = 18.0
 margin_right = 149.0
 margin_bottom = 32.0
 text = "Gyroscope"
 
-[node name="EnableGyroBtn" type="CheckButton" parent="Camera2D/HUD/Rows"]
+[node name="EnableGyroBtn" type="CheckButton" parent="HUD/Rows"]
 unique_name_in_owner = true
 margin_top = 36.0
 margin_right = 149.0
@@ -129,4 +127,4 @@ text = "Allow Gyro"
 
 [connection signal="gyroscope_triggered" from="SensorComponent" to="." method="_on_SensorComponent_gyroscope_triggered"]
 [connection signal="ios_permission_requested" from="SensorComponent" to="." method="_on_SensorComponent_ios_permission_requested"]
-[connection signal="toggled" from="Camera2D/HUD/Rows/EnableGyroBtn" to="." method="_on_EnableGyro_toggled"]
+[connection signal="toggled" from="HUD/Rows/EnableGyroBtn" to="." method="_on_EnableGyro_toggled"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet04.png-161ed21a811bf42cf3b6239bfa3bdc8c.stex"
+path="res://.import/bg_space_seamless.png-738b39fb20998461b28d822c28c72c4c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planet04.png"
-dest_files=[ "res://.import/planet04.png-161ed21a811bf42cf3b6239bfa3bdc8c.stex" ]
+source_file="res://assets/bg_space_seamless.png"
+dest_files=[ "res://.import/bg_space_seamless.png-738b39fb20998461b28d822c28c72c4c.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
