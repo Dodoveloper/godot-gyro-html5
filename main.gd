@@ -3,9 +3,11 @@ extends Node2D
 
 const TILT_TRESHOLD := 5.0
 const CAMERA_STEP := 3  # pixels
+const CAMERA_SPEED := 200.0
 
 onready var camera := $Camera2D as Camera2D
 onready var sensor_component := $SensorComponent as SensorComponent
+onready var background := $ParallaxBackground/ParallaxLayer1/Background as Sprite
 onready var os_label := $"%OSLabel" as Label
 onready var gyro_label := $"%GyroscopeLabel" as Label
 # iOS only
@@ -17,8 +19,7 @@ onready var default_camera_pos := camera.position.x
 func _ready() -> void:
 	# dynamically set camera limits based on the farthest parallax layer
 	var screen_size_x: int = ProjectSettings.get("display/window/size/width")
-	var background_extents := (farthest_layer.get_node("BackgroundFlat") as Sprite).\
-			texture.get_size()
+	var background_extents := background.texture.get_size()
 	# get the distance between one edge of the background and one of the screen size,
 	# then scale it based on the background's parallax layer
 	var scaled_delta_x := round(abs(background_extents.x - screen_size_x) / 2\
@@ -31,6 +32,12 @@ func _ready() -> void:
 	# plug-in logic
 	if sensor_component.os_string == "iOS":
 		enable_gyro_btn.show()
+
+
+func _physics_process(delta: float) -> void:
+	var dir := int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+	camera.position.x = lerp(camera.position.x, camera.position.x + CAMERA_STEP * dir,
+			CAMERA_SPEED * delta)
 
 
 # Used to trigger the iOS permission logic
