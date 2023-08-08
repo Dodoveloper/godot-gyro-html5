@@ -11,12 +11,15 @@ It supports both Android and iOS platforms.
 You can access gyroscope data only in [secure contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) (HTTPS).
 
 Also, iOS devices require explicit user interaction before allowing access to gyroscope data from an HTML5 application.
-That's why the demo has a toggle button on the top left, which is visible only on such platforms. When enabled, a popup requesting permission will appear on screen, and after selecting _Allow_ you should get access to gyroscope data on iOS.
+That's why the demo has a toggle button on the top left, which is visible only on such platforms.
 
 ![image](https://github.com/Dodoveloper/godot-gyro-html5/assets/17781050/af5549a6-a1b6-4d04-b302-8bb1e24b840a)
 
-## How to use
+When enabled, a popup requesting permission will appear on screen, and after selecting _Allow_ you should get access to gyroscope data on iOS.
+
+## Usage
 There is a custom class called `GyroComponent`, which takes care of requesting permissions to access the gyroscope (if needed) and gathering its data.
+
 Just instantiate the component scene in your game scene (the one which will get the data and handle it) and connect to its signals:
 - `ios_permission_requested(is_granted)`: emitted after the user has interacted with the permission popup;
 - `gyroscope_triggered(coords)`: emitted every time the JS event is triggered, the `coords` argument is a `Vector3` holding [orientation data](https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained). `x` holds the rotation around the **X** axis, `y` on the **y** axis and so on.
