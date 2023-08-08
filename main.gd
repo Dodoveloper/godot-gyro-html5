@@ -28,8 +28,6 @@ func _physics_process(delta: float) -> void:
 	parallax_background.scroll_offset.x = lerp(parallax_background.scroll_offset.x,
 			parallax_background.scroll_offset.x + SCROLL_STEP * dir,
 			SCROLL_SPEED * delta)
-#	parallax_background.scroll_offset.x = clamp(parallax_background.scroll_offset.x,
-#			parallax_background.scroll_limit_end.x, parallax_background.scroll_limit_begin.x)
 
 
 # Used to trigger the iOS permission logic
@@ -44,8 +42,7 @@ func _on_SensorComponent_gyroscope_triggered(coords: Vector3) -> void:
 	gyro_label.text = "Gyroscope: %s" % text
 	# camera-moving logic
 	var relative_scroll: float = coords.y if abs(coords.y) > TILT_TRESHOLD else 0.0
-	parallax_background.scroll_offset.x += SCROLL_STEP * (relative_scroll / 2.5)
-#	camera_pos.x = lerp(camera_pos.x, camera_pos.x + relative_scroll, 0.5)
+	parallax_background.scroll_offset.x -= relative_scroll
 
 
 # Updates the checkbox button based on the outcome of the request

@@ -23,11 +23,29 @@ var os_string: String
 
 func _ready() -> void:
 	if OS.has_feature("JavaScript"):
-		# try to get OS, getOS() is defined in the head_include property!
-		os_string = window.getOS()
+		os_string = _get_os()
 		# works on Android
 		if os_string == "Android":
 			window.addEventListener("deviceorientation", handleOrientation)
+
+
+func _get_os() -> String:
+	return JavaScript.eval("""
+		// https://dev.to/vaibhavkhulbe/get-os-details-from-the-webpage-in-javascript-b07
+		function getOS() {
+			var userAgent = window.navigator.userAgent,
+			platform = window.navigator.platform,
+			iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+			os = 'unknown';
+			if (iosPlatforms.indexOf(platform) !== -1) {
+				os = 'iOS';
+			} else if (/Android/.test(userAgent)) {
+				os = 'Android';
+			}
+			return os;
+		}
+		getOS();
+	""")
 
 
 # Event listener: handles orientation by getting the event data.
