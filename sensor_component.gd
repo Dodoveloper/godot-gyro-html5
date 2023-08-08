@@ -27,6 +27,8 @@ func _ready() -> void:
 		# works on Android
 		if os_string == "Android":
 			window.addEventListener("deviceorientation", handleOrientation)
+	else:
+		print("Not running on HTML5 platform")
 
 
 func _get_os() -> String:

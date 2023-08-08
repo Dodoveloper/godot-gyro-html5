@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-1fdba8b6a966ce2c2ffc607f7c096e95.stex"
+path="res://.import/bg_space.png-756112b2fc69f42ef9edac4ba99ee415.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background.png"
-dest_files=[ "res://.import/background.png-1fdba8b6a966ce2c2ffc607f7c096e95.stex" ]
+source_file="res://assets/bg_space.png"
+dest_files=[ "res://.import/bg_space.png-756112b2fc69f42ef9edac4ba99ee415.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
