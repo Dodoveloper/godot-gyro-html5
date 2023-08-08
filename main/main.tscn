@@ -21,6 +21,9 @@ script = ExtResource( 3 )
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 position = Vector2( 540, 960 )
@@ -28,12 +31,12 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3840, 2160 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.2, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Planet07" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( 248, 1536 )
@@ -42,6 +45,9 @@ texture = ExtResource( 6 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.3, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Planet00" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2( 24, 392 )
@@ -50,6 +56,9 @@ texture = ExtResource( 7 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.4, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Planet09" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
 position = Vector2( 1080, 1568 )
@@ -58,6 +67,9 @@ texture = ExtResource( 8 )
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.5, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Planet05" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
 position = Vector2( 1528, 824 )
@@ -66,6 +78,9 @@ texture = ExtResource( 5 )
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.6, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Planet02" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
 position = Vector2( -496, 616 )
@@ -74,6 +89,9 @@ texture = ExtResource( 2 )
 
 [node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.7, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Planet03" type="Sprite" parent="ParallaxBackground/ParallaxLayer7"]
 position = Vector2( 552, 976 )
@@ -82,6 +100,9 @@ texture = ExtResource( 10 )
 
 [node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.8, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Planet08" type="Sprite" parent="ParallaxBackground/ParallaxLayer8"]
 position = Vector2( 1176, 1096 )
@@ -90,6 +111,9 @@ texture = ExtResource( 9 )
 
 [node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.9, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Planet01" type="Sprite" parent="ParallaxBackground/ParallaxLayer9"]
 position = Vector2( -536, 1584 )

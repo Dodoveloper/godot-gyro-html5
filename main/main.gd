@@ -46,6 +46,6 @@ func _on_SensorComponent_gyroscope_triggered(coords: Vector3) -> void:
 
 
 # Updates the checkbox button based on the outcome of the request
-func _on_SensorComponent_ios_permission_requested(value: bool) -> void:
-	enable_gyro_btn.pressed = value
+func _on_SensorComponent_ios_permission_requested(is_granted: bool) -> void:
+	enable_gyro_btn.pressed = is_granted
 	enable_gyro_btn.disabled = true

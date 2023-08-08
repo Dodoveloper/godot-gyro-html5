@@ -9,7 +9,7 @@ class_name GyroComponent
 extends Node
 
 
-signal ios_permission_requested(value)
+signal ios_permission_requested(is_granted)
 signal gyroscope_triggered(coords)
 
 var window = JavaScript.get_interface("window")
