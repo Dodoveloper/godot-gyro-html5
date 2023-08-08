@@ -10,12 +10,12 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
-"class": "SensorComponent",
+"class": "GyroComponent",
 "language": "GDScript",
-"path": "res://sensor_component.gd"
+"path": "res://main/gyro_component/gyro_component.gd"
 } ]
 _global_script_class_icons={
-"SensorComponent": ""
+"GyroComponent": ""
 }
 
 [application]
@@ -23,7 +23,7 @@ _global_script_class_icons={
 config/name="Mobile Gyro Demo"
 config/description="A demo showing how to get data from a gyroscope on an HTML5 platform.
 These sensors are typically found on mobile devices, so don't expect this to work on a desktop."
-run/main_scene="res://main.tscn"
+run/main_scene="res://main/main.tscn"
 config/icon="res://icon.png"
 
 [display]

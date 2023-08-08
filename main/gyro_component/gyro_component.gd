@@ -5,7 +5,7 @@
 # mobile platforms.
 # Note: apparently, when using JavaScript.create_callback, we need to do that
 # at the top of the script, otherwise it will not work.
-class_name SensorComponent
+class_name GyroComponent
 extends Node
 
 
