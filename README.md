@@ -1,6 +1,8 @@
 # Godot Gyroscope on HTML5
 This is a Godot 3.5 demo demonstrating how to get gyroscope data from mobile devices on an HTML5 export.
 
+![example](./imgs/gyro-example.gif)
+
 ## Description
 The project leverages Godot's JavaScript [bridge](https://docs.godotengine.org/en/3.5/classes/class_javascript.html) to call JS APIs, specifically to detect the [device orientation](https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events/Detecting_device_orientation).
 This is needed for games that are deployed on the web, since calling `Input.get_gyroscope()` works only on native applications.
@@ -13,11 +15,7 @@ You can access gyroscope data only in [secure contexts](https://developer.mozill
 Also, iOS devices require explicit user interaction before allowing access to gyroscope data from an HTML5 application.
 That's why the demo has a toggle button on the top left, which is visible only on such platforms.
 
-![image](https://github.com/Dodoveloper/godot-gyro-html5/assets/17781050/af5549a6-a1b6-4d04-b302-8bb1e24b840a)
-
-When enabled, a popup requesting permission will appear on screen, and after selecting _Allow_ you should get access to gyroscope data on iOS.
-
-## Usage
+## How to use
 There is a custom class called `GyroComponent`, which takes care of requesting permissions to access the gyroscope (if needed) and gathering its data.
 
 Just instantiate the component scene in your game scene (the one which will get the data and handle it) and connect to its signals:
